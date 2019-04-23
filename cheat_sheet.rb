@@ -240,30 +240,9 @@ block_message_printer { puts "This message remembers message :: #{message}" }
 
 #####################################################################################
 
-def proc_message_printer(my_proc)
-    message = "Welcome to Proc Message Printer"
-    my_proc.()
-    puts "But in this function/method message is :: #{message}"
-end
-
-
-my_proc = proc { puts "This message remembers message :: #{message}" }
-proc_message_printer(my_proc)
-    
-######################################################################################    
-    
-def lambda_message_printer(my_lambda)
-    message = "Welcome to Lambda Message Printer"
-    my_lambda.call
-    puts "But in this function/method message is :: #{message}"
-end
-
-my_lambda = -> { puts "This message remembers message :: #{message}" }
-lambda_message_printer(my_lambda)    
-    
-######################################################################################  
 # Random Problem 
 Primes 
+
 def is_prime(n) 
   (2..(n - 1)).each do |i| 
     if (n % i == 0)
@@ -273,6 +252,7 @@ def is_prime(n)
   true
 end 
 
+# Is a number a palindrome? i.e. 55, 5 -> 5 == 5 <- 5 
 def palindromic(num) 
   if num.to_s.split("") == num.to_s.split("").reverse
     true 
@@ -280,28 +260,3 @@ def palindromic(num)
     false 
   end 
 end 
-
-def palindromic_prime(n) 
-  new_arr = []
-  2.upto(Float::INFINITY).lazy.each do |i| 
-    if (is_prime(i) && palindromic(i)) 
-      new_arr << i 
-    end 
-    if new_arr.length == n  
-      break
-    end 
-  end 
-  new_arr
-end 
-
-OR 
-
-require 'prime'
-
-n = gets.to_i
-p Prime.each.lazy.select{|x| x == x.to_s.reverse.to_i}.first(n)
-
-palindromic_prime(5) 
-# [2,3,5,7,11,101,131,151,181,191] 
-
-######################################################
